@@ -1,0 +1,11 @@
+Archive:  ./dist/otf-fira-code.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+   159024  2016-09-07 13:33   FiraCode-Bold.otf
+   154528  2016-09-07 13:33   FiraCode-Light.otf
+   156560  2016-09-07 13:33   FiraCode-Medium.otf
+   154908  2016-09-07 13:33   FiraCode-Regular.otf
+   155212  2016-09-07 13:33   FiraCode-Retina.otf
+     4619  2016-09-07 13:33   otf-fira-code_LICENSE
+---------                     -------
+   784851                     6 files

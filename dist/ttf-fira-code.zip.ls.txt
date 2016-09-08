@@ -1,0 +1,11 @@
+Archive:  ./dist/ttf-fira-code.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+   246692  2016-09-07 13:33   FiraCode-Bold.ttf
+   216016  2016-09-07 13:33   FiraCode-Light.ttf
+   213712  2016-09-07 13:33   FiraCode-Medium.ttf
+   215268  2016-09-07 13:33   FiraCode-Regular.ttf
+   216376  2016-09-07 13:33   FiraCode-Retina.ttf
+     4619  2016-09-07 13:33   ttf-fira-code_LICENSE
+---------                     -------
+  1112683                     6 files

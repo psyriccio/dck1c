@@ -1,0 +1,36 @@
+Archive:  ./dist/mscorefonts.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+   105468  2016-09-07 11:26   andalemo.ttf
+   286620  2016-09-07 11:26   arialbd.ttf
+   224692  2016-09-07 11:26   arialbi.ttf
+   206132  2016-09-07 11:26   ariali.ttf
+   275572  2016-09-07 11:26   arial.ttf
+   117028  2016-09-07 11:26   ariblk.ttf
+   111476  2016-09-07 11:26   comicbd.ttf
+   126364  2016-09-07 11:26   comic.ttf
+   311508  2016-09-07 11:26   courbd.ttf
+   234788  2016-09-07 11:26   courbi.ttf
+   244156  2016-09-07 11:26   couri.ttf
+   302688  2016-09-07 11:26   cour.ttf
+   139584  2016-09-07 11:26   georgiab.ttf
+   156668  2016-09-07 11:26   georgiai.ttf
+   142964  2016-09-07 11:26   georgia.ttf
+   158796  2016-09-07 11:26   georgiaz.ttf
+   136076  2016-09-07 11:26   impact.ttf
+     4919  2016-09-07 11:26   mscorefonts_LICENSE
+   333900  2016-09-07 11:26   timesbd.ttf
+   238612  2016-09-07 11:26   timesbi.ttf
+   247092  2016-09-07 11:26   timesi.ttf
+   330412  2016-09-07 11:26   times.ttf
+   123828  2016-09-07 11:26   trebucbd.ttf
+   131188  2016-09-07 11:26   trebucbi.ttf
+   139288  2016-09-07 11:26   trebucit.ttf
+   126796  2016-09-07 11:26   trebuc.ttf
+   136032  2016-09-07 11:26   verdanab.ttf
+   154264  2016-09-07 11:26   verdanai.ttf
+   139640  2016-09-07 11:26   verdana.ttf
+   153324  2016-09-07 11:26   verdanaz.ttf
+   118752  2016-09-07 11:26   webdings.ttf
+---------                     -------
+  5658627                     31 files

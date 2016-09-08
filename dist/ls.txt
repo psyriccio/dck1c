@@ -1,0 +1,19 @@
+итого 676424
+     0 drwxr-xr-x 1 psyriccio wheel      1106 сен  7 18:22 .
+     0 drwxr-xr-x 1 psyriccio wheel       114 сен  8 09:03 ..
+203644 -rw-rw-rw- 1 psyriccio wheel 208529878 янв 16  2016 1c-enterprise83-client_8.3.7-1873_amd64.deb
+ 19416 -rw-rw-rw- 1 psyriccio wheel  19877906 янв 16  2016 1c-enterprise83-client-nls_8.3.7-1873_amd64.deb
+ 33032 -rw-r--r-- 1 psyriccio wheel  33824730 янв 16  2016 1c-enterprise83-common_8.3.7-1873_amd64.deb
+  1572 -rw-r--r-- 1 psyriccio wheel   1607934 янв 16  2016 1c-enterprise83-common-nls_8.3.7-1873_amd64.deb
+171036 -rw-r--r-- 1 psyriccio wheel 175140248 янв 16  2016 1c-enterprise83-server_8.3.7-1873_amd64.deb
+ 59248 -rw-r--r-- 1 psyriccio wheel  60668736 янв 16  2016 1c-enterprise83-server-nls_8.3.7-1873_amd64.deb
+132580 -rw-rw-rw- 1 psyriccio wheel 135759586 янв 16  2016 1c-enterprise83-thin-client_8.3.7-1873_amd64.deb
+  9760 -rw-rw-rw- 1 psyriccio wheel   9990332 янв 16  2016 1c-enterprise83-thin-client-nls_8.3.7-1873_amd64.deb
+   188 -rw-r--r-- 1 psyriccio wheel    190048 янв 16  2016 1c-enterprise83-ws_8.3.7-1873_amd64.deb
+    12 -rw-r--r-- 1 psyriccio wheel     11980 янв 16  2016 1c-enterprise83-ws-nls_8.3.7-1873_amd64.deb
+  3356 -rw-r--r-- 1 psyriccio wheel   3435309 сен  7 11:34 mscorefonts.zip
+   484 -rw-r--r-- 1 psyriccio wheel    495363 сен  7 13:38 otf-fira-code.zip
+   528 -rw-r--r-- 1 psyriccio wheel    538104 сен  7 13:38 ttf-fira-code.zip
+ 28696 -rw-r--r-- 1 psyriccio wheel  29381083 сен  7 18:21 ultraflat-icons.zip
+ 11656 -rw-r--r-- 1 psyriccio wheel  11932673 сен  7 18:19 yltra-icons.zip
+  1216 -rw-r--r-- 1 psyriccio wheel   1241532 сен  7 16:37 zukitwo-themes.zip
