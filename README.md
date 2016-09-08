@@ -28,3 +28,11 @@
 
 * Использовать для запуска `./run.sh` или комманду вида
 `docker run -t --rm -e DISPLAY -v $HOME/.Xauthority:/home/user/.Xauthority -v $HOME:/home/user -v /mnt:/mnt --net=host --pid=host --ipc=host psyriccio/docker1c`
+
+![imlst.png](./imglst.png)
+
+![shot01.png](./shot01.png)
+
+![shot02.png](./shot02.png)
+
+![shot03.png](./shot03.png)
