@@ -24,7 +24,6 @@
 
 * Разместить официальные deb-пакеты 1С соответствующих версий и архитектуры (common, server, client) в директории ./dist (server нужен тоже, не знаю зачем, но он указан в зависимостях пакета client (1С -- такая 1С))
 
-Лицензия: [LGPLv3](./LICENSE.TXT)
 * Собрать контейнер `docker build -t psyriccio/docker1c .`
 
 * Использовать для запуска `./run.sh` или комманду вида
@@ -37,3 +36,5 @@
 ![shot02.png](./screenshots/shot02.png)
 
 ![shot03.png](./screenshots/shot03.png)
+
+Лицензия: [LGPLv3](./LICENSE.TXT)
