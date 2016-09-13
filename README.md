@@ -13,6 +13,9 @@
   </p>
 </blockquote>
 
+В репозитории присутствует light-версия Dockerfile (без тем, шрифтов, infinality, только mscorefonts)
+находится в директории ./light
+
 ### Настройка, сборка и использование
 
 * В Dockerfile исправить версию платформы, архитектуру и используемую кодировку
@@ -36,3 +39,5 @@
 ![shot02.png](./screenshots/shot02.png)
 
 ![shot03.png](./screenshots/shot03.png)
+
+Лицензия: [LGPLv3](./LICENSE.TXT)
