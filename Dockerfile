@@ -1,9 +1,11 @@
 FROM ubuntu:14.04
 MAINTAINER psyriccio
 
+ENV DEBIAN_FRONTEND noninteractive
+
 RUN apt-get update \
       && apt-get install -y software-properties-common python-software-properties \
-      && add-apt-repository multiverse && add-apt-repository ppa:no1wantdthisname/ppa && apt-get update && apt-get upgrade \
+      && add-apt-repository multiverse && add-apt-repository ppa:no1wantdthisname/ppa && apt-get update && apt-get upgrade -y \
       && apt-get install -y unixodbc libgsf-1-114 imagemagick libglib2.0-dev libt1-5 t1utils \
           libwebkit-dev libcanberra-gtk-module unzip fontconfig-infinality gtk2-engines-murrine gtk2-engines-pixbuf \
       && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
