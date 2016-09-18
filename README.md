@@ -27,10 +27,10 @@
 
 * Разместить официальные deb-пакеты 1С соответствующих версий и архитектуры (common, server, client) в директории ./dist (server нужен тоже, не знаю зачем, но он указан в зависимостях пакета client (1С -- такая 1С))
 
-* Собрать контейнер `docker build -t psyriccio/docker1c .`
+* Собрать контейнер `docker build -t psyriccio/dck1c .`
 
 * Использовать для запуска `./run.sh` или комманду вида
-`docker run -t --rm -e DISPLAY -v $HOME/.Xauthority:/home/user/.Xauthority -v $HOME:/home/user -v /mnt:/mnt --net=host --pid=host --ipc=host psyriccio/docker1c`
+`docker run -t --rm -e DISPLAY -v $HOME/.Xauthority:/home/user/.Xauthority -v $HOME:/home/user -v /mnt:/mnt --net=host --pid=host --ipc=host psyriccio/dck1c`
 
 ![imlst.png](./screenshots/imglst.png)
 
