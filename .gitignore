@@ -1,4 +1,5 @@
 *.deb
+/images/
 /user/
 y
 *.tar
