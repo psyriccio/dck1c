@@ -38,6 +38,9 @@ DCK1C_CUSTOM_COMMANDS='nano:Запустить текстовый редакто
 # Если контейнер работает нестабильно -- можно попробовать выключить эту опцию
 DCK1C_SQUASH_IMAGES=true
 
+# Архитектура платформы amd64 / i386
+DCK1C_1CPLATFORM_ARCH='amd64'
+
 # Версия платформы для сборки
 DCK1C_1CPLATFORM_VERSION='8.3.7-1873'
 
