@@ -6,17 +6,17 @@ source /opt/dck1c/lib/utils.sh
 export TERM=xterm-color
 
 function print_banner() {
-    printf "${_LWHT} _______   ______  __  ___  __    ______ ${_NA}\n"
-    printf "${_LWHT}|       \ /      ||  |/  / /_ |  /      |${_NA}\n"
-    printf "${_LWHT}|  .--.  |  ,----'|  '  /   | | |  ,----'${_NA}\n"
-    printf "${_LWHT}|  |  |  |  |     |    <    | | |  |     ${_NA}\n"
-    printf "${_LWHT}|  '--'  |  \`----.|  .  \   | | |  \`----.${_NA}\n"
-    printf "${_LWHT}|_______/ \______||__|\__\\  |_|  \______|${_NA}\n\n"
-    printf "${_LWHT}\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D"
-    printf "\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D"
-    printf "\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D${_NA}\n"
-    printf "${_LWHT}     1C docker container builder${_NA}\n"
-    printf "${_LWHT}_________________________________________${_NA}\n"
+    printf "\n\n"
+    printf "${_BLU}         88            88               ${_LYLW}88   ,ad8888ba,   ${_NA}\n"
+    printf "${_BLU}         88            88             ${_LYLW},d88  d8\"\'    \`\"8b  ${_NA}\n"
+    printf "${_BLU}         88            88           ${_LYLW}888888 d8\'            ${_NA}\n"
+    printf "${_BLU} ,adPPYb,88  ,adPPYba, 88   ,d8         ${_LYLW}88 88             ${_NA}\n"
+    printf "${_BLU}a8\"    \`Y88 a8\"     \"\" 88 ,a8\"          ${_LYLW}88 88             ${_NA}\n"
+    printf "${_BLU}8b       88 8b         8888[            ${_LYLW}88 Y8,            ${_NA}\n"
+    printf "${_BLU}\"8a,   ,d88 \"8a,   ,aa 88\`\"Yba,         ${_LYLW}88  Y8a.    .a8P  ${_NA}\n"
+    printf "${_BLU} \`\"8bbdP\"Y8  \`\"Ybbd8\"\' 88   \`Y8a        ${_LYLW}88   \`\"Y8888Y\"\'   ${_NA}\n"
+    printf "\n"
+    printf "${_LWHT}                              1C docker container builder${_NA}\n\n"
 }
 
 function get_prc_table() {
@@ -43,12 +43,9 @@ while [[ "" == "" ]]; do
         nohup /opt/1C/v8.3/x86_64/1cv8 &> /dev/null &
     fi
     if [[ $dresult == "ListAll" ]]; then
-        for p in $(pgrep 1cv8); do
-            ps -p $p -F
-        done
-        echo "-----"
-        printf "Нажмите <enter> для продолжения\n"
-        read
+        prc_tbl=$(get_prc_table)
+        printf "$prc_tbl" | xargs dialog --no-ok --menu "Сеансы" 20 70 70 "$1" "$*" 2> /tmp/pid.out
+        kresult=$(cat /tmp/pid.out) && rm -f /tmp/pid.out
     fi
     if [[ $dresult == "Bash" ]]; then
         bash
