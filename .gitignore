@@ -5,3 +5,4 @@ y
 *.tar
 /Dockerfile
 /ubn1c-base/Dockerfile
+/cache/

@@ -1,5 +1,21 @@
 #!/bin/bash
 
+export TERM=xterm-color
+
+function print_banner() {
+    printf "${_LWHT} _______   ______  __  ___  __    ______ ${_NA}\n"
+    printf "${_LWHT}|       \ /      ||  |/  / /_ |  /      |${_NA}\n"
+    printf "${_LWHT}|  .--.  |  ,----'|  '  /   | | |  ,----'${_NA}\n"
+    printf "${_LWHT}|  |  |  |  |     |    <    | | |  |     ${_NA}\n"
+    printf "${_LWHT}|  '--'  |  \`----.|  .  \   | | |  \`----.${_NA}\n"
+    printf "${_LWHT}|_______/ \______||__|\__\\  |_|  \______|${_NA}\n\n"
+    printf "${_LWHT}\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D"
+    printf "\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D"
+    printf "\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D${_NA}\n"
+    printf "${_LWHT}     1C docker container builder${_NA}\n"
+    printf "${_LWHT}_________________________________________${_NA}\n"
+}
+
 function get_prc_table() {
     for p in $(pgrep 1cv8); do
         echo $p
@@ -7,10 +23,15 @@ function get_prc_table() {
     done
 }
 
+XTERM=${DC1}
+if [[ $1 == "--xterm"]] && [ "${DCK1C_XTERM+false}" == "false" ]; then
+    env DCK1C_XTERM=true xterm -e /bin/bash -c "/opt/dck1c/start.sh"
+fi
+
+print_banner
 nohup /opt/1C/v8.3/x86_64/1cv8 &> /dev/null &
-printf "dck1c started!\n"
-while [[ true ]]; do
-    dialog --no-ok --no-cancel --menu "dck1C" 12 50 50 "OneMore" "Запустить ещё одну 1С" "ListAll" "Сеансы" "Bash" "Запустить bash shell" "Kill" "Завершить один" "KillAll" "Завершить все" "Kill&Exit" "Завершить все и выйти" 2> /tmp/dresult.out
+while [[ "" == "" ]]; do
+    dialog --no-ok --no-cancel --menu "dck1C" 14 50 50 "OneMore" "Запустить ещё одну 1С" "ListAll" "Сеансы" "Bash" "Запустить bash shell" "Kill" "Завершить один" "KillAll" "Завершить все" "Kill&Exit" "Завершить все и выйти" 2> /tmp/dresult.out
     dresult=$(cat /tmp/dresult.out) && rm -f /tmp/dresult.out
     if [[ $dresult == "OneMore" ]]; then
         nohup /opt/1C/v8.3/x86_64/1cv8 &> /dev/null &
