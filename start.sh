@@ -23,9 +23,10 @@ function get_prc_table() {
     done
 }
 
-XTERM=${DC1}
-if [[ $1 == "--xterm"]] && [ "${DCK1C_XTERM+false}" == "false" ]; then
+USEXTERM=${DCK1C_XTERM+false}
+if [[ "$1" == "--xterm" ]] && [[ ! "${USEXTERM}" ]]; then
     env DCK1C_XTERM=true xterm -e /bin/bash -c "/opt/dck1c/start.sh"
+    exit $?
 fi
 
 print_banner
