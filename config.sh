@@ -17,6 +17,9 @@ DCK1C_AWESOME_FONTS_RENDERING=true
 # Добавить тему оформления zookitwo + ultraflat icons set
 DCK1C_INJECT_UI_THEMES=true
 
+# Запускать одного клиента при запуске контейнера
+DCK1C_AUTOSTART_CLIENT=true
+
 # Пакеты, дополнительно устанавливаемые в контейнер
 # НЕ РЕАЛИЗОВАНО
 ___DCK1C_INSTALL_PACKAGES='nano mc'
