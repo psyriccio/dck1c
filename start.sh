@@ -26,16 +26,18 @@ function get_prc_table() {
     done
 }
 
+print_banner
+
 USEXTERM=${DCK1C_XTERM+false}
 if [[ "$1" == "--xterm" ]] && [[ ! "${USEXTERM}" ]]; then
     env DCK1C_XTERM=true xterm -e /bin/bash -c "/opt/dck1c/start.sh"
     exit $?
 fi
 
-print_banner
 if [[ $DCK1C_AUTOSTART_CLIENT ]]; then
     nohup /opt/1C/v8.3/x86_64/1cv8 &> /dev/null &
 fi
+pause 3
 while [[ "" == "" ]]; do
     dialog --no-ok --no-cancel --menu "dck1C" 14 50 50 "OneMore" "Запустить ещё одну 1С" "ListAll" "Сеансы" "Bash" "Запустить bash shell" "Kill" "Завершить один" "KillAll" "Завершить все" "Kill&Exit" "Завершить все и выйти" 2> /tmp/dresult.out
     dresult=$(cat /tmp/dresult.out) && rm -f /tmp/dresult.out
