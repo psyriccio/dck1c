@@ -37,7 +37,7 @@ fi
 if [[ $DCK1C_AUTOSTART_CLIENT ]]; then
     nohup /opt/1C/v8.3/x86_64/1cv8 &> /dev/null &
 fi
-pause 3
+sleep 3
 while [[ "" == "" ]]; do
     dialog --no-ok --no-cancel --menu "dck1C" 14 50 50 "OneMore" "Запустить ещё одну 1С" "ListAll" "Сеансы" "Bash" "Запустить bash shell" "Kill" "Завершить один" "KillAll" "Завершить все" "Kill&Exit" "Завершить все и выйти" 2> /tmp/dresult.out
     dresult=$(cat /tmp/dresult.out) && rm -f /tmp/dresult.out
