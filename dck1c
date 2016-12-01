@@ -29,6 +29,7 @@ function print_usage() {
     printf "${_LWHT}\t%-30s${_YLW} %5s${_NA} %-70s\n" "dck1c run" "  -  " "запуск с сервисным меню в этом терминале"
     printf "${_LWHT}\t%-30s ${_YLW}%5s${_NA} %-70s\n" "dck1c [ --help | -h | -help ]" "  -  " "вывод этого сообщения"
     printf "${_LWHT}\t%-30s ${_YLW}%5s${_NA} %-70s\n" "dck1c xterm" "  -  " "запуск с сервисным меню в отдельном окне с xterm"
+	printf "\n\n"
 }
 
 

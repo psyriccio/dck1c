@@ -1,5 +1,5 @@
 #!/bin/bash
-export $BASEDIRECTORY=/opt/dck1c
+export BASEDIRECTORY=/opt/dck1c
 source /opt/dck1c/config.sh
 source /opt/dck1c/lib/ansiesc.sh
 source /opt/dck1c/lib/utils.sh
