@@ -1,4 +1,21 @@
 #!/bin/bash
+
+if [[ -n $DCK1C_ROOT ]]; then
+    export BASEDIRECTORY=$DCK1C_ROOT
+else
+    export BASEDIRECTORY=$(dirname $0)
+fi
+
+if [[ ! -f $BASEDIRECTORY/lib/utils.sh ]]; then
+    printf "\n\n"
+    printf "Текущая директория не является базовой директорией dck1c\n"
+    printf "Запускайте скрипты dck1c перейдя в базовую директорию (обычно /opt/dck1c)\n"
+    printf "или установите переменную окружения DCK1C_ROOT\n"
+    printf "к примеру: export DCK1C_ROOT=/opt/dck1c\n"
+    printf "\n\n"
+    exit -1
+fi
+
 source $BASEDIRECTORY/lib/ansiesc.sh
 source $BASEDIRECTORY/lib/utils.sh
 source $BASEDIRECTORY/config.sh
