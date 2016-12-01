@@ -10,7 +10,7 @@ if [[ ! -f $BASEDIRECTORY/lib/utils.sh ]]; then
     printf "Текущая директория не является базовой директорией dck1c\n"
     printf "Запускайте скрипты dck1c перейдя в базовую директорию (обычно /opt/dck1c)\n"
     printf "или установите переменную окружения DCK1C_ROOT\n"
-    printf "к примеру: export DCK1C_ROOT=/opt/dck1\n"
+    printf "к примеру: export DCK1C_ROOT=/opt/dck1c\n"
     printf "\n\n"
     exit -1
 fi
