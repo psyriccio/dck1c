@@ -1,11 +1,51 @@
 #!/bin/bash
+if [[ -n $DCK1C_ROOT ]]; then
+    export BASEDIRECTORY=$DCK1C_ROOT
+else
+    export BASEDIRECTORY=$(dirname $0)
+fi
+
+if [[ ! -f $BASEDIRECTORY/lib/utils.sh ]]; then
+    printf "\n\n"
+    printf "Текущая директория не является базовой директорией dck1c\n"
+    printf "Запускайте скрипты dck1c перейдя в базовую директорию (обычно /opt/dck1c)\n"
+    printf "или установите переменную окружения DCK1C_ROOT\n"
+    printf "к примеру: export DCK1C_ROOT=/opt/dck1\n"
+    printf "\n\n"
+    exit -1
+fi
+
+source $BASEDIRECTORY/lib/ansiesc.sh
+source $BASEDIRECTORY/lib/utils.sh
+
+print_banner
+
 rm -rf /tmp/user
 mkdir /tmp/user
 cp -R ~/.1C /tmp/user
 cp -R ~/.1cv8 /tmp/user
-if [[ $1 == "--xterm" ]]; then
+function print_usage() {
+    printf "${_LWHT}dck1c ${_YLW}:> ${_LWHT}docker контейнер для 1C клиента/конфигуратора${_NA}\n\n"
+    printf "${_LWHT}\t%-30s${_YLW} %5s${_NA} %-70s\n" "dck1c run" "  -  " "запуск с сервисным меню в этом терминале"
+    printf "${_LWHT}\t%-30s ${_YLW}%5s${_NA} %-70s\n" "dck1c [ --help | -h | -help ]" "  -  " "вывод этого сообщения"
+    printf "${_LWHT}\t%-30s ${_YLW}%5s${_NA} %-70s\n" "dck1c xterm" "  -  " "запуск с сервисным меню в отдельном окне с xterm"
+}
+
+
+if [[ $1 == "--help" ]] || [[ $1 == "-h" ]] || [[ $1 == "-help" ]]; then
+    print_usage
+    exit 0
+fi
+if [[ $1 == "xterm" ]]; then
     nohup docker run --rm -e DISPLAY -v $HOME/.Xauthority:/home/user/.Xauthority -v $HOME:/home/user -v /mnt:/mnt --net=host --pid=host --ipc=host psyriccio/dck1c /opt/dck1c/start.sh $* &> /dev/null &
-else
+    exit $?
+fi
+if [[ $1 == "run" ]]; then
     docker run -it --rm -e DISPLAY -v $HOME/.Xauthority:/home/user/.Xauthority -v $HOME:/home/user -v /mnt:/mnt --net=host --pid=host --ipc=host psyriccio/dck1c /opt/dck1c/start.sh $*
+    exit $?
 fi
 #docker run -it --rm -e DISPLAY -v $HOME/.Xauthority:/home/user/.Xauthority -v $HOME:/home/user -v /mnt:/mnt --net=host --pid=host --ipc=host psyriccio/dck1c $*
+
+printf "${_LRED}Что-то не так с параметрами запуска, вот справка:${_NA}\n\n"
+print_usage
+exit 1

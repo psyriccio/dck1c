@@ -1,7 +1,7 @@
 #!/bin/bash
-source ./lib/ansiesc.sh
-source ./lib/utils.sh
-source ./config.sh
+source $BASEDIRECTORY/lib/ansiesc.sh
+source $BASEDIRECTORY/lib/utils.sh
+source $BASEDIRECTORY/config.sh
 
 function print_banner() {
 
