@@ -149,23 +149,23 @@ fi
 if [[ $DCK1C_SQUASH_IMAGES ]]; then
     printf "${_LWHT}Уплотнение и оптимизация образов...${_NA}\n"
     printf "\t./images/ubn1c-base.image.tar\n"
-    if [[ ! $BASE_CACHED ]]; then
+    #if [[ ! $BASE_CACHED ]]; then
         docker tag psyriccio/ubn1c-base psyriccio/ubn1c-base-unsq
         mv ./images/ubn1c-base.image.tar ./images/ubn1c-base-unsq.image.tar
         ./tools/docker-squash -i ./images/ubn1c-base-unsq.image.tar -o ./images/ubn1c-base.image.tar -t psyriccio/ubn1c-base
         docker load -i ./images/ubn1c-base.image.tar
-    else
-        printf "\t\t${_YLW} образ из кэша, оптимизация не требуется${_NA}\n"
-    fi
+    #else
+    #    printf "\t\t${_YLW} образ из кэша, оптимизация не требуется${_NA}\n"
+    #fi
 
-    if [[ ! $DCK_CACHED ]]; then
+    #if [[ ! $DCK_CACHED ]]; then
         docker tag psyriccio/dck1c psyriccio/dck1c-unsq
         mv ./images/dck1c.image.tar ./images/dck1c-unsq.image.tar
         ./tools/docker-squash -i ./images/dck1c-unsq.image.tar -o ./images/dck1c.image.tar -t psyriccio/dck1c
         docker load -i ./images/dck1c.image.tar
-    else
-        printf "\t\t${_YLW} образ из кэша, оптимизация не требуется${_NA}\n"
-    fi
+    #else
+    #    printf "\t\t${_YLW} образ из кэша, оптимизация не требуется${_NA}\n"
+    #fi
 fi
 
 if [[ -n $DCK1C_DOCKER_REGISTRY ]]; then
