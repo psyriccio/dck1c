@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./ansiesc.sh
+source /opt/dck1c/lib/ansiesc.sh
 
 # show errror message ($1) and exit with exit code #############################
 # calculated from error message hash
