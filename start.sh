@@ -16,7 +16,7 @@ function print_banner() {
     printf "${_BLU}\"8a,   ,d88 \"8a,   ,aa 88\`\"Yba,         ${_LYLW}88  Y8a.    .a8P  ${_NA}\n"
     printf "${_BLU} \`\"8bbdP\"Y8  \`\"Ybbd8\"\' 88   \`Y8a        ${_LYLW}88   \`\"Y8888Y\"\'   ${_NA}\n"
     printf "\n"
-    printf "                 ${_LWHT}%40s${_NA}\n" "1C docker container builder"
+    printf "                 ${_LWHT}%40s${_NA}\n" "1C docker container"
     printf "                 ${_LGRE}%40s${_NA}\n" ${_VERSION}
     printf "                 ${_LGRE}%40s${_NA}\n\n" "pltf."${DCK1C_1CPLATFORM_VERSION}
 }
