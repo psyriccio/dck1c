@@ -1,43 +1,62 @@
-# Docker контейнер для linux 1С клиента
+# dck1c менеджер контейнеров для 1C Enterprise клиента/конфигуратора
 
-Контейнер на базе ubuntu 14.04, в составе infinality-патчи (рендеринг шрифтов),
-шрифт "Fira Code", набор стандартных шрифтов mscorefonts (читайте лицензию в архиве),
-набор тем Zukitwo, UltraFlatIcons, YltraIcons
-можно не использовать: выкинуть файлы "ultraflat-icons.zip, yltra-icons.zip, zukitwo-themes.zip" ,
-и удалить из DockerFile строки:
-<blockquote>
-  <p>
-  && unzip /opt/zukitwo-themes.zip -d /usr/share/themes \ <br>
-  && unzip /opt/yltra-icons.zip -d /usr/share/icons \ <br>
-  && unzip /opt/ultraflat-icons.zip -d /usr/share/icons \ <br>
-  </p>
-</blockquote>
+## Описание
 
-В репозитории присутствует light-версия Dockerfile (без тем, шрифтов, infinality, только mscorefonts)
-находится в директории ./light
+Позволяет создавать, запускать и управлять docker-контейнерами на базе ubuntu 14.04,
+для искользования 1C клиента/конфигуратора на любом Linux дистрибутиве, централизованного
+управления версиями платформ, организации репозитория для быстрой установки на большое число
+компьютеров, создания пакетов для установки 1С клиента на различные linux дистрибутивы, изоляции 1C от отстальной системы, запуска автоматизированных сервисов,
+работающих с 1C, сборки/разборки конфигураций, построения build-серверов или систем
+непрерывной интеграции для платформы 1С Enterprise.
 
-### Настройка, сборка и использование
+## Установка
 
-* В Dockerfile исправить версию платформы, архитектуру и используемую кодировку
-<blockquote>
-  ENV PLT_VERSION 8.3.7-1873 <br>
-  ENV PLT_ARCH amd64 <br>
-  ENV LANG ru_RU.utf8 <br>
-</blockquote>
+### Из git-репозитория
 
-* Разместить официальные deb-пакеты 1С соответствующих версий и архитектуры (common, server, client) в директории ./dist (server нужен тоже, не знаю зачем, но он указан в зависимостях пакета client (1С -- такая 1С))
+* Из домашней директории пользователя (или из другого места, если понимаете, что делаете), выполните:
 
-* Собрать контейнер `docker build -t psyriccio/dck1c .`
+`git clone https://github.com/psyriccio/dck1c.git --branch release`
 
-* Использовать для запуска `./run.sh` или комманду вида
-`docker run -t --rm -e DISPLAY -v $HOME/.Xauthority:/home/user/.Xauthority -v $HOME:/home/user -v /mnt:/mnt --net=host --pid=host --ipc=host psyriccio/dck1c`
+либо скачайте архивом и распакуйте в домашнюю директорию (или другую директорию, куда желаете установить dck1c и на которую для вас установлены соответствующие права)
 
-![imlst.png](./screenshots/imglst.png)
+[dck1c-git-release.zip](https://github.com/psyriccio/dck1c/archive/release.zip)
 
-![shot01.png](./screenshots/shot01.png)
+* Для удобства использования добавьте пути к скриптам dck1c в PATH и установите в
+переменной окружения DCK1C_ROOT путь к корневой директории dck1c
+(при установке из домашней директории это `~/dck1c` или `/home/<имя пользователя>/dck1c`)
+Это можно сделать отредактировав файл `dck1c/extra/50-dck1c-environment.sh`, исправив путь к dck1c и разместив его в директории `/etc/profile.d/` или создайте новый по следующему примеру:
 
-![shot02.png](./screenshots/shot02.png)
+`/etc/profile.d/50-dck1c-environment.sh:`
+```
+#!/usr/bin/env sh
 
-![shot03.png](./screenshots/shot03.png)
+export DCK1C_ROOT=~/dck1c # /opt/dck1c   - путь к корневой директории dck1c
+export PATH=$DCK1C_ROOT:$DCK1C_ROOT/bin:$PATH
+```
+
+Готово! Теперь для использования dck1c, если переменные DCK1C_ROOT и PATH были установлены верно просто наберите в терминале dck1c, если переменные не были установлены запускайте dck1c перейдя в его директорию
+
+```
+cd ./some_where/dck1c
+./dck1c
+```
+
+### Linux пакетом
+
+Релизы dck1c так же доступны в виде пакетов для некоторых Linux-дистрибутивов
+(пока доступен только Arch Linux)
+
+[comming_soon_when_non_alpha_build_released](https://github.com/psyriccio/dck1c/projects)
+
+### Установка debug/development версии
+---
+
+__Oсторожно!__
+
+Development-версия может быть не стабильна, её использование может привести к потере данных и друним неприятным последствиям, используйте только если вы понимаете, что делаете!
+
+---
+
+`git clone https://github.com/psyriccio/dck1c.git --branch dev`
 
 Лицензия: [LGPLv3](./LICENSE.TXT)
