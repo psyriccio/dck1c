@@ -130,7 +130,7 @@ mkdir -p ./images
 if [[ BASE_REBUILD ]]; then
     printf "${_LWHT}Сборка базового образа ubn1c-base...${_NA}\n"
     cd ubn1c-base
-    docker build -t psyriccio/ubn1c-base .
+    docker build -t psyriccio/ubn1c-base . | tail
     cd ..
     docker save psyriccio/ubn1c-base -o ./images/ubn1c-base.image.tar
 else
@@ -139,7 +139,7 @@ else
 fi
 if [[ DCK_REBUILD ]]; then
     printf "${_LWHT}Сборка dck1c образа...${_NA}\n"
-    docker build -t psyriccio/dck1c .
+    docker build -t psyriccio/dck1c . | tail
     docker save psyriccio/dck1c -o ./images/dck1c.image.tar
 else
     printf "${_LWHT}Взят готовый образ dck1c${_NA}\n"
