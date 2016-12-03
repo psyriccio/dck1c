@@ -43,16 +43,21 @@ while [[ "" == "" ]]; do
         if [[ $tresult == "Conf" ]]; then
             dialog --no-ok --no-cancel --menu "dck1C - Tools" 14 50 50 "Write" "Сохранить в файл" "Read" "Загрузить из файла" "Dump" "Выгрузить в файлы" "Load" "Загрузить из файлов"  2> /tmp/dresult.out
             tresult=$(cat /tmp/dresult.out) && rm -f /tmp/dresult.out
-            if [[ tresult ==  "Write" ]]; then
+            if [[ $tresult ==  "Write" ]]; then
+                exit 0
             fi
-            if [[ tresult == "Read" ]]; then
+            if [[ $tresult == "Read" ]]; then
+                exit 0
             fi
-            if [[ tresult == "Dump" ]]; then
+            if [[ $tresult == "Dump" ]]; then
+                exit 0
             fi
-            if [[ tresult == "Load" ]]; then
+            if [[ $tresult == "Load" ]]; then
+                exit 0
             fi
         fi
         if [[ $tresult == "DB" ]]; then
+            exit 0
         fi
     fi
     if [[ $dresult == "KillAll" ]]; then

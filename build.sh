@@ -130,7 +130,14 @@ mkdir -p ./images
 if [[ BASE_REBUILD ]]; then
     printf "${_LWHT}Сборка базового образа ubn1c-base...${_NA}\n"
     cd ubn1c-base
-    docker build -t psyriccio/ubn1c-base . | tail
+    rm -f /tmp/out.out
+    echo "---" > /tmp/out.out
+    print_banner > /tmp/dck1c_banner.ansi
+    dialog --hline "${_VERSION}" --title "Сборка базового образа ubn1c-base" --tailbox /tmp/out.out 10 120 --and-widget --textbox /tmp/dck1c_banner.ansi 15 60 2> /dev/null &
+    docker build -t psyriccio/ubn1c-base . > /tmp/out.out 2>&1
+    sleep 2
+    killall dialog
+    rm -f /tmp/out.out
     cd ..
     docker save psyriccio/ubn1c-base -o ./images/ubn1c-base.image.tar
 else
@@ -139,7 +146,13 @@ else
 fi
 if [[ DCK_REBUILD ]]; then
     printf "${_LWHT}Сборка dck1c образа...${_NA}\n"
-    docker build -t psyriccio/dck1c . | tail
+    rm -f /tmp/out.out
+    echo "---" > /tmp/out.out
+    dialog --hline "${_VERSION}" --title "Сборка dck1c образа" --tailbox /tmp/out.out 10 120 2> /dev/null &
+    docker build -t psyriccio/dck1c . &> /tmp/out.out
+    sleep 2
+    killall dialog
+    rm -f /tmp/out.out
     docker save psyriccio/dck1c -o ./images/dck1c.image.tar
 else
     printf "${_LWHT}Взят готовый образ dck1c${_NA}\n"
