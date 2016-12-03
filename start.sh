@@ -1,5 +1,8 @@
 #!/bin/bash
 export BASEDIRECTORY=/opt/dck1c
+export DIALOG_OK=0
+export DIALOG_CANCEL=1
+export DIALOG_EXTRA=2
 source $BASEDIRECTORY/config.sh
 source $BASEDIRECTORY/lib/ansiesc.sh
 source $BASEDIRECTORY/lib/utils.sh
@@ -17,24 +20,40 @@ if [[ $DCK1C_AUTOSTART_CLIENT ]]; then
 fi
 sleep 3
 while [[ "" == "" ]]; do
-    dialog --no-ok --no-cancel --menu "dck1C" 14 50 50 "OneMore" "Запустить ещё одну 1С" "ListAll" "Сеансы" "Bash" "Запустить bash shell" "Kill" "Завершить один" "KillAll" "Завершить все" "Kill&Exit" "Завершить все и выйти" 2> /tmp/dresult.out
+    dialog --no-ok --no-cancel --menu "dck1C" 14 50 50 "Run" "Запустить 1С" "Sessions" "Сеансы" "Bash" "Запустить bash shell" "Tools" "Инструменты" "Kill&Exit" "Завершить все и выйти" 2> /tmp/dresult.out
     dresult=$(cat /tmp/dresult.out) && rm -f /tmp/dresult.out
-    if [[ $dresult == "OneMore" ]]; then
+    if [[ $dresult == "Run" ]]; then
         nohup /opt/1C/v8.3/x86_64/1cv8 &> /dev/null &
     fi
-    if [[ $dresult == "ListAll" ]]; then
+    if [[ $dresult == "Sessions" ]]; then
         prc_tbl=$(get_prc_table)
         printf "$prc_tbl" | xargs dialog --no-ok --menu "Сеансы" 20 70 70 "$1" "$*" 2> /tmp/pid.out
+        krescode=$?
         kresult=$(cat /tmp/pid.out) && rm -f /tmp/pid.out
+        if (( $krescode == 123 )); then
+            kill $kresult
+        fi
     fi
     if [[ $dresult == "Bash" ]]; then
         bash
     fi
-    if [[ $dresult == "Kill" ]]; then
-        prc_tbl=$(get_prc_table)
-        printf "$prc_tbl" | xargs dialog --no-ok --menu "Kill <?>" 20 70 70 "$1" "$*" 2> /tmp/pid.out
-        kresult=$(cat /tmp/pid.out) && rm -f /tmp/pid.out
-        kill $kresult
+    if [[ $dresult == "Tools" ]]; then
+        dialog --no-ok --no-cancel --menu "dck1C - Tools" 14 50 50 "Conf" "Конфигурация" "DB" "БД" 2> /tmp/dresult.out
+        tresult=$(cat /tmp/dresult.out) && rm -f /tmp/dresult.out
+        if [[ $tresult == "Conf" ]]; then
+            dialog --no-ok --no-cancel --menu "dck1C - Tools" 14 50 50 "Write" "Сохранить в файл" "Read" "Загрузить из файла" "Dump" "Выгрузить в файлы" "Load" "Загрузить из файлов"  2> /tmp/dresult.out
+            tresult=$(cat /tmp/dresult.out) && rm -f /tmp/dresult.out
+            if [[ tresult ==  "Write" ]]; then
+            fi
+            if [[ tresult == "Read" ]]; then
+            fi
+            if [[ tresult == "Dump" ]]; then
+            fi
+            if [[ tresult == "Load" ]]; then
+            fi
+        fi
+        if [[ $tresult == "DB" ]]; then
+        fi
     fi
     if [[ $dresult == "KillAll" ]]; then
         for p in $(pgrep 1cv8); do kill $p; done;
