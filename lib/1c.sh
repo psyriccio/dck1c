@@ -29,7 +29,7 @@ function base_connection_setup() {
         export c1connection_user="user"
     fi
     resultsfile="/tmp/"$(uuid)
-    dialog --form "Соединение с базой" 10 50 3 "      Сервер:" 0 0 "$c1connection_server" 0 14 30 30 "      Имя БД:" 2 0 "$c1connection_database" 2 14 30 30 "Пользователь:" 3 0 "$c1connection_user" 3 14 30 30 2> "$resultsfile"
+    dialog --form "Соединение с базой" 10 50 3 "      Сервер:" 0 0 "$c1connection_server" 0 14 30 30 "      Имя БД:" 2 0 "$c1connection_database" 2 14 30 30 "Пользователь:" 3 0 "$c1connection_user" 3 14 30 30 2> $resultsfile
     res=($(cat "$resultsfile"))
     rm -f "$resultsfile"
     export c1connection_server=$(echo $res[1])
