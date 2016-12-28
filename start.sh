@@ -46,6 +46,7 @@ while [[ "" == "" ]]; do
             tresult=$(cat /tmp/dresult.out) && rm -f /tmp/dresult.out
             if [[ $tresult ==  "Write" ]]; then
                 cfflname="/tmp/"$(date +%Y%m%d_%H%M%S)".$c1connection_server.$c1connection_database.cf"
+                printf "Writing configuration %s...\n" $cfflname
                 write_configuration "$cfflname"
                 exit 0
             fi
