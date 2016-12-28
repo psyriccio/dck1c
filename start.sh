@@ -6,6 +6,7 @@ export DIALOG_EXTRA=2
 source $BASEDIRECTORY/config.sh
 source $BASEDIRECTORY/lib/ansiesc.sh
 source $BASEDIRECTORY/lib/utils.sh
+source $BASEDIRECTORY/lib/1c.sh
 
 print_banner
 
@@ -44,6 +45,8 @@ while [[ "" == "" ]]; do
             dialog --no-ok --no-cancel --menu "dck1C - Tools" 14 50 50 "Write" "Сохранить в файл" "Read" "Загрузить из файла" "Dump" "Выгрузить в файлы" "Load" "Загрузить из файлов"  2> /tmp/dresult.out
             tresult=$(cat /tmp/dresult.out) && rm -f /tmp/dresult.out
             if [[ $tresult ==  "Write" ]]; then
+                cfflname="/tmp/"$(date +%Y%m%d_%H%M%S)".$c1connection_server.$c1connection_database.cf"
+                write_configuration "$cfflname"
                 exit 0
             fi
             if [[ $tresult == "Read" ]]; then
