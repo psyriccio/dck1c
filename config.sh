@@ -43,7 +43,7 @@ DCK1C_SQUASH_IMAGES=true
 DCK1C_1CPLATFORM_ARCH='amd64'
 
 # Версия платформы для сборки
-DCK1C_1CPLATFORM_VERSION='8.3.7-1873'
+DCK1C_1CPLATFORM_VERSION='8.3.9-1850'
 
 # Используемая локаль
 DCK1C_LANG='ru_RU.utf8'
