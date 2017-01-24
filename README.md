@@ -1,4 +1,4 @@
-![dck1C](./logo.png)
+![dck1C](./logo_wh.png)
 
 # dck1c менеджер контейнеров для 1C Enterprise клиента/конфигуратора
 
